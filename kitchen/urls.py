@@ -1,54 +1,53 @@
 from django.urls import path
 
+from kitchen.views import DishTypeListView, DishTypeCreateView, DishTypeUpdateView, DishTypeDeleteView, DishListView, \
+    DishDetailView, DishCreateView, DishUpdateView, DishDeleteView, index
+
 urlpatterns = [
     path("", index, name="index"),
     path(
         "dishtype/",
-        ManufacturerListView.as_view(),
-        name="manufacturer-list",
+        DishTypeListView.as_view(),
+        name="dishtype-list",
     ),
     path(
         "dishtype/create/",
-        ManufacturerCreateView.as_view(),
-        name="manufacturer-create",
+        DishTypeCreateView.as_view(),
+        name="dishtype-create",
     ),
     path(
         "dishtype/<int:pk>/update/",
-        ManufacturerUpdateView.as_view(),
-        name="manufacturer-update",
+        DishTypeUpdateView.as_view(),
+        name="dishtype-update",
     ),
     path(
         "dishtype/<int:pk>/delete/",
-        ManufacturerDeleteView.as_view(),
-        name="manufacturer-delete",
+        DishTypeDeleteView.as_view(),
+        name="dishtype-delete",
     ),
-    path("dishes/", CarListView.as_view(), name="car-list"),
-    path("dishes/<int:pk>/", CarDetailView.as_view(), name="car-detail"),
-    path("dishes/create/", CarCreateView.as_view(), name="car-create"),
-    path("dishes/<int:pk>/update/", CarUpdateView.as_view(), name="car-update"),
-    path("dishes/<int:pk>/delete/", CarDeleteView.as_view(), name="car-delete"),
+    path("dishes/", DishListView.as_view(), name="car-list"),
+    path("dishes/<int:pk>/", DishDetailView.as_view(), name="car-detail"),
+    path("dishes/create/", DishCreateView.as_view(), name="car-create"),
+    path("dishes/<int:pk>/update/", DishUpdateView.as_view(), name="car-update"),
+    path("dishes/<int:pk>/delete/", DishDeleteView.as_view(), name="car-delete"),
     path(
         "dishes/<int:pk>/toggle-assign/",
-        toggle_assign_to_car,
+        toggle_assign_to_dish,
         name="toggle-car-assign",
     ),
-    path("cookers/", DriverListView.as_view(), name="driver-list"),
+    path("cookers/", CookListView.as_view(), name="driver-list"),
     path(
-        "cookers/<int:pk>/", DriverDetailView.as_view(), name="driver-detail"
+        "cookers/<int:pk>/", CookDetailView.as_view(), name="driver-detail"
     ),
-    path("cookers/", DriverListView.as_view(), name="driver-list"),
-    path(
-        "cookers/<int:pk>/", DriverDetailView.as_view(), name="driver-detail"
-    ),
-    path("cookers/create/", DriverCreateView.as_view(), name="driver-create"),
+    path("cookers/create/", CookCreateView.as_view(), name="driver-create"),
     path(
         "cookers/<int:pk>/update/",
-        DriverLicenseUpdateView.as_view(),
+        CookExperienceUpdateView.as_view(),
         name="driver-update",
     ),
     path(
         "cookers/<int:pk>/delete/",
-        DriverDeleteView.as_view(),
+        CookDeleteView.as_view(),
         name="driver-delete",
     ),
 ]
