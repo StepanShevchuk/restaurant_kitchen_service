@@ -30,7 +30,7 @@ class CookCreationForm(UserCreationForm):
         return validate_years_of_experience(self.cleaned_data["years_of_experience"])
 
 
-class CookLicenseUpdateForm(forms.ModelForm):
+class CookExperienceUpdateForm(forms.ModelForm):
     class Meta:
         model = Cook
         fields = ["years_of_experience"]
