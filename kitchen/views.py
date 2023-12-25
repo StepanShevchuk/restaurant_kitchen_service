@@ -46,9 +46,9 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         if self.request.GET.get("name"):
-            return Manufacturer.objects.filter(
+            return DishType.objects.filter(
                 name__icontains=self.request.GET.get("name"))
-        return Manufacturer.objects.all()
+        return DishType.objects.all()
 
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
@@ -156,7 +156,7 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 
 @login_required
-def toggle_assign_to_car(request, pk):
+def toggle_assign_to_dish(request, pk):
     cook = Cook.objects.get(id=request.user.id)
     if (
         Dish.objects.get(id=pk) in cook.cars.all()
