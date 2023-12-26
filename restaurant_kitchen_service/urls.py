@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("kitchen.urls", namespace="kitchen")),
     path("accounts/", include("django.contrib.auth.urls")),
+    path("", include('admin_soft.urls'))
 ]

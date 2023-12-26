@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_soft.apps.AdminSoftDashboardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -69,6 +70,8 @@ TEMPLATES = [
     },
 ]
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
 WSGI_APPLICATION = 'restaurant_kitchen_service.wsgi.application'
 
 
@@ -106,6 +109,9 @@ AUTH_USER_MODEL = 'kitchen.Cook'
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+ASSETS_ROOT = '/static/assets'
+
 
 TIME_ZONE = 'UTC'
 
