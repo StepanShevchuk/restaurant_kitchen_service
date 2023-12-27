@@ -26,31 +26,31 @@ urlpatterns = [
         DishTypeDeleteView.as_view(),
         name="dishtype-delete",
     ),
-    path("dishes/", DishListView.as_view(), name="cook-list"),
-    path("dishes/<int:pk>/", DishDetailView.as_view(), name="cook-detail"),
-    path("dishes/create/", DishCreateView.as_view(), name="cook-create"),
-    path("dishes/<int:pk>/update/", DishUpdateView.as_view(), name="cook-update"),
-    path("dishes/<int:pk>/delete/", DishDeleteView.as_view(), name="cook-delete"),
+    path("dishes/", DishListView.as_view(), name="dish-list"),
+    path("dishes/<int:pk>/", DishDetailView.as_view(), name="dish-detail"),
+    path("dishes/create/", DishCreateView.as_view(), name="dish-create"),
+    path("dishes/<int:pk>/update/", DishUpdateView.as_view(), name="dish-update"),
+    path("dishes/<int:pk>/delete/", DishDeleteView.as_view(), name="dish-delete"),
     path(
         "dishes/<int:pk>/toggle-assign/",
         toggle_assign_to_dish,
-        name="toggle-car-assign",
+        name="toggle-dish-assign",
     ),
-    path("cookers/", CookListView.as_view(), name="driver-list"),
+    path("cookers/", CookListView.as_view(), name="cook-list"),
     path(
-        "cookers/<int:pk>/", CookDetailView.as_view(), name="driver-detail"
+        "cookers/<int:pk>/", CookDetailView.as_view(), name="cook-detail"
     ),
-    path("cookers/create/", CookCreateView.as_view(), name="driver-create"),
+    path("cookers/create/", CookCreateView.as_view(), name="cook-create"),
     path(
         "cookers/<int:pk>/update/",
         CookExperienceUpdateView.as_view(),
-        name="driver-update",
+        name="cook-update",
     ),
     path(
         "cookers/<int:pk>/delete/",
         CookDeleteView.as_view(),
-        name="driver-delete",
+        name="cook-delete",
     ),
 ]
 
-app_name = "taxi"
+app_name = "kitchen"
