@@ -23,12 +23,15 @@ def index(request):
     num_cookers = Cook.objects.count()
     num_dishes = Dish.objects.count()
     num_dishtypes = DishType.objects.count()
+    num_visits = request.session.get('visit_count', 0) + 1
 
     context = {
         "num_cookers": num_cookers,
         "num_dishes": num_dishes,
         "num_dishtypes": num_dishtypes,
+        "num_visits": num_visits
     }
+    request.session['visit_count'] = num_visits
 
     return render(request, "kitchen/index.html", context=context)
 
