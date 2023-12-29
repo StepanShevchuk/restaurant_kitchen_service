@@ -145,6 +145,7 @@ class CookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Cook
     form_class = CookCreationForm
     template_name = "kitchen/cook_create.html"
+    success_url = reverse_lazy("kitchen:cook-list")
 
 
 class CookExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
