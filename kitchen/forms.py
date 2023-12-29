@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
+from django.forms import TextInput
 
 from kitchen.models import Dish, Cook
 
@@ -25,10 +26,23 @@ class CookCreationForm(UserCreationForm):
             "first_name",
             "last_name",
         )
+        widgets = {
+            "years_of_experience": TextInput(attrs={"placeholder": "Years of experience"},),
+            "first_name": TextInput(attrs={"placeholder": "First name"},),
+            "last_name": TextInput(attrs={"placeholder": "Last name"}, ),
+            "username": TextInput(attrs={"placeholder": "Username"}, ),
+
+        }
 
     def clean_license_number(self):  # this logic is optional, but possible
         return validate_years_of_experience(self.cleaned_data["years_of_experience"])
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for key, field in self.fields.items():
+            if key == "password1" or key == "password2":
+                continue
+            field.label = ""
 
 class CookExperienceUpdateForm(forms.ModelForm):
     class Meta:
