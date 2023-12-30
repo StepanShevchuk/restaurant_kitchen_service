@@ -97,35 +97,34 @@
               <div class="card-img-overlay">
                   <div class="row">
                     <div class="col-lg-6">
-                      <div class="d-flex flex-column h-100">
-                        <h5 class="font-weight-bolder p-4" style="color: steelblue">Cookers</h5>
-                        <p class="mb-5" style="color: steelblue">Those who keep you full.</p>
-                        <a class="text-success text-sm font-weight-bold mb-0 icon-move-right mt-auto pl-4" href="{% url "kitchen:cook-list"%}">
-                          Read More
-                          <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                        </a>
+                      <div style="background: aliceblue; width: 250px; text-align: center; border-radius: 10px">
+                          <div class="d-flex flex-column h-100">
+                            <h5 class="font-weight-bolder p-4" style="color: black">Cookers</h5>
+                                <p style="color: black">Those who keep you full.</p>
+                                <a class="text-success text-sm font-weight-bold icon-move-right mt-auto pl-4" style="padding-bottom: 10px" href="{% url "kitchen:cook-list"%}">
+                                    Read More
+                                <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                </a>
+                          </div>
                       </div>
                     </div>
                   </div>
               </div>
           </div>
         </div>
-          
         <div class="col-lg-5 mb-lg-0 mb-4">
-          <div class="card h-100">
+          <div class="card">
               <img class="card-img" src="{% static "img/illustrations/dishes.png" %}" style="height: 225px; object-fit: cover" alt="cook">
               <div class="card-img-overlay">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="d-flex flex-column h-100">
-                        <h5 class="font-weight-bolder p-4" style="color: navy">Dishes</h5>
-                        <p style="color: navy">All dishes that we have in our restaurant.</p>
-                        <a class="text-success text-sm font-weight-bold mb-0 icon-move-right mt-auto pl-4" href="{% url "kitchen:dish-list"%}">
-                          Read More
+                  <div style="background: aliceblue; width: 250px; text-align: center; border-radius: 10px">
+                     <div class="d-flex flex-column h-100">
+                     <h5 class="font-weight-bolder p-4" style="color: black">Dishes</h5>
+                          <p style="color: black">All dishes of our restaurant.</p>
+                          <a class="text-success text-sm font-weight-bold mb-0 icon-move-right mt-auto pl-4" href="{% url "kitchen:dish-list"%}" style="padding-bottom: 10px">
+                            Read More
                           <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                         </a>
-                      </div>
-                    </div>
+                     </div>
                   </div>
               </div>
           </div>
@@ -133,24 +132,26 @@
       </div>
       <div class="row mt-2">
           <div >
-              <div class="card h-100">
+              <div class="card">
                   <img class="card-img" src="{% static "img/illustrations/wheat.png" %}" style="height: 225px; object-fit: cover" alt="cook">
                   <div class="card-img-overlay">
                       <div class="row">
                         <div class="col-lg-6">
-                          <div class="d-flex flex-column h-100">
-                            <h5 class="font-weight-bolder p-4" style="color: navy">Dish Types</h5>
-                            <p style="color: navy">All dish types that we have in our restaurant.</p>
-                            <a class="text-success text-sm font-weight-bold mb-0 icon-move-right mt-auto pl-4" href="{% url "kitchen:dish-list"%}">
-                              Read More
-                              <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                            </a>
+                          <div style="background: aliceblue; width: 250px; text-align: center; border-radius: 10px">
+                              <div class="d-flex flex-column h-100">
+                                <h5 class="font-weight-bolder p-4" style="color: black">Dish Types</h5>
+                                <p style="color: black">All dish types of our restaurant.</p>
+                                <a class="text-success text-sm font-weight-bold mb-0 icon-move-right mt-auto pl-4" style="padding-bottom: 10px" href="{% url "kitchen:dish-list"%}">
+                                  Read More
+                                  <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                </a>
+                              </div>
                           </div>
                         </div>
                       </div>
                   </div>
               </div>
-            </div>
+          </div>
       </div>
       {% include "includes/footer.html" %}
     </div>
