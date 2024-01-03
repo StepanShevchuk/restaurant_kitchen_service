@@ -83,6 +83,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context["search_form"] = DishSearchForm
+        context["num_dishes"] = len(context["dish_list"])
         return context
 
     def get_queryset(self):
@@ -107,7 +108,7 @@ class DishCreateView(LoginRequiredMixin, generic.CreateView):
 class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Dish
     form_class = DishForm
-    success_url = reverse_lazy("taxi:car-list")
+    success_url = reverse_lazy("kitchen:dish-list")
     template_name = "kitchen/dish_update.html"
 
 
@@ -151,7 +152,7 @@ class CookCreateView(LoginRequiredMixin, generic.CreateView):
 class CookExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
     form_class = CookExperienceUpdateForm
-    success_url = reverse_lazy("taxi:driver-list")
+    success_url = reverse_lazy("kitchen:cook-list")
     template_name = "kitchen/cook_update.html"
 
 
@@ -163,11 +164,12 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 @login_required
 def toggle_assign_to_dish(request, pk):
-    cook = Cook.objects.get(id=request.user.id)
+    dish = Dish.objects.get(id=request.user.id)
+    cook = request.user
     if (
-        Dish.objects.get(id=pk) in cook.cars.all()
+         cook in dish.cooks.all()
     ):  # probably could check if car exists
-        cook.cars.remove(pk)
+        dish.cooks.remove(cook.id)
     else:
-        cook.cars.add(pk)
+        dish.cooks.add(cook.id)
     return HttpResponseRedirect(reverse_lazy("taxi:car-detail", args=[pk]))
