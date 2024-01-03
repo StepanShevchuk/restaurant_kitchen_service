@@ -8,7 +8,7 @@ from kitchen.models import Dish, Cook
 
 
 class DishForm(forms.ModelForm):
-    cookers = forms.ModelMultipleChoiceField(
+    cooks = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
@@ -44,6 +44,7 @@ class CookCreationForm(UserCreationForm):
                 continue
             field.label = ""
 
+
 class CookExperienceUpdateForm(forms.ModelForm):
     class Meta:
         model = Cook
@@ -72,7 +73,7 @@ class DishTypeSearchForm(forms.Form):
 
 
 class DishSearchForm(forms.Form):
-    model = forms.CharField(max_length=50,
+    name = forms.CharField(max_length=50,
                             label="",
                             widget=forms.TextInput(
                                 attrs={"placeholder": "sort by name"}))
