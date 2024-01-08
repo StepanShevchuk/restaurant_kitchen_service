@@ -74,8 +74,8 @@ class DishTypeSearchForm(forms.Form):
 
 class DishSearchForm(forms.Form):
     name = forms.CharField(max_length=50,
-                            label="",
-                            widget=forms.TextInput(
+                           label="",
+                           widget=forms.TextInput(
                                 attrs={"placeholder": "sort by name"}))
 
 
@@ -84,3 +84,4 @@ class CookSearchForm(forms.Form):
                                label="",
                                widget=forms.TextInput(
                                    attrs={"placeholder": "sort by username"}))
+    
