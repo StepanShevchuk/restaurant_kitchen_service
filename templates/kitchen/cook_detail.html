@@ -1,0 +1,81 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+    <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-6 col-7 pl-5">
+                  <h4>{{ cook.first_name }} {{ cook.last_name }}</h4>
+                  <p class="text-sm mb-0">
+                    <span class="font-weight-bold ms-1">{{ cook.username }}</span>
+                  </p>
+                </div>
+                <div class="col-lg-6 col-5 my-auto text-end">
+                  <div class="dropdown float-lg-end pe-4">
+                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-ellipsis-v text-secondary"></i>
+                    </a>
+                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                      <li><a class="dropdown-item border-radius-md" href="{% url "kitchen:cook-delete" pk=cook.id %}">Delete cooker</a></li>
+                        <li><a class="dropdown-item border-radius-md" href="{% url "kitchen:cook-update" pk=cook.id %}">Update years of experience</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+                <div class="card mb-3" style="background: aliceblue">
+                    <div class="row" >
+                        <div class="col-auto" style="text-align: center;">
+                                <h5 class=" p-4" style="color: black;">Years of experience</h5>
+                                <p style="color: black">{{ cook.years_of_experience }}</p>
+                         </div>
+                        <div class="col-auto" style="text-align: center;">
+                         <h5 class=" p-4" style="color: black">Is staff</h5>
+                              <p style="color: black">{{ cook.is_staff }}</p>
+                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header pb-0">
+                            <div class="row">
+                            <div class="col-lg-6 col-7 pl-5">
+                            <h4>Dishes</h4>
+                        </div>
+                            <div class="card-body px-0 pb-2">
+                              <div class="table-responsive">
+                                <table class="table align-items-center mb-0">
+                                  <thead>
+                                    <tr>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder" style="text-align: center">ID</th>
+                                      <th class="text-uppercase text-secondary text-xs font-weight-bolder" style="text-align: center">Name</th>
+                                      <th class="text-uppercase text-secondary text-xs font-weight-bolder" style="text-align: center">Price</th>
+                                      <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder" style="text-align: center">Type</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                      {% for dish in cook.dishes.all %}
+                                        <tr>
+                                          <td class="align-middle text-center text-sm">
+                                              <span class="text-xs font-weight-bold">{{dish.id}}</span>
+                                          </td>
+                                          <td class="align-middle text-center text-sm">
+                                            <a class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{% url "kitchen:dish-detail" pk=dish.id %}">{{dish.name}}</a>
+                                          </td>
+                                          <td class="align-middle text-center text-sm">
+                                            <span class="text-xs font-weight-bold">{{dish.price}}</span>
+                                          </td>
+                                          <td class="align-middle text-center text-sm">
+                                            <span class="text-xs font-weight-bold"> {{dish.type}} </span>
+                                          </td>
+                                        </tr>
+                                      {% endfor %}
+                                  </tbody>
+                                </table>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}
