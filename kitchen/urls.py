@@ -9,7 +9,7 @@ from kitchen.views import (DishTypeListView,
                            DishCreateView,
                            DishUpdateView,
                            DishDeleteView,
-                           index,
+                           IndexView,
                            CookDetailView,
                            CookListView,
                            CookCreateView,
@@ -18,7 +18,7 @@ from kitchen.views import (DishTypeListView,
                            DishToggleAssign)
 
 urlpatterns = [
-    path("", index, name="index"),
+    path("", IndexView.index, name="index"),
     path(
         "dishtype/",
         DishTypeListView.as_view(),
