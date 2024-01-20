@@ -29,7 +29,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = "RENDER" not in os.environ
 
-ALLOWED_HOSTS = ["https://kitchen-service-v5ah.onrender.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
