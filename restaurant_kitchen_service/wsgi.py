@@ -1,5 +1,5 @@
 """
-WSGI config for mysite project.
+WSGI config for restaurant_kitchen_service project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -17,6 +17,6 @@ path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if path not in sys.path:
     sys.path.append(path)
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'restaurant_kitchen_service.settings')
 
 application = get_wsgi_application()
