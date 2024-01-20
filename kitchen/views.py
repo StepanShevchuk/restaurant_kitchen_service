@@ -16,8 +16,8 @@ from .forms import (
 )
 
 class IndexView(LoginRequiredMixin, generic.ListView):
-    @classmethod
-    def index(cls, request):
+
+    def get(self, request, *args, **kwargs):
         num_cookers = Cook.objects.count()
         num_dishes = Dish.objects.count()
         num_dishtypes = DishType.objects.count()
@@ -164,6 +164,7 @@ class DishToggleAssign(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("kitchen:dish-list")
 
     @classmethod
+    @login_required
     def delete(cls, request, pk):
         dish = Dish.objects.get(id=pk)
         if request.user in dish.cooks.all():

@@ -18,7 +18,7 @@ from kitchen.views import (DishTypeListView,
                            DishToggleAssign)
 
 urlpatterns = [
-    path("", IndexView.index, name="index"),
+    path("", IndexView.as_view(), name="index"),
     path(
         "dishtype/",
         DishTypeListView.as_view(),
