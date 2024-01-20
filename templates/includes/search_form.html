@@ -1,0 +1,11 @@
+<form action="" method="get">
+    {% csrf_token %}
+    <div style="display: inline-block" >
+        <table>
+            <tr>
+                <td>{{ search_form }}</td>
+                <td><button style="background: none; border: none" type="submit"><i class="fas fa-search"></i></button></td>
+            </tr>
+        </table>
+    </div>
+</form>
