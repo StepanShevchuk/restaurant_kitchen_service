@@ -1,0 +1,12 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+    <div style="text-align: center; margin-left: 70px">
+        <div class="card" style="width: 400px;">
+            <h4>You sure you want to delete?</h4>
+            <form action="" method="post">
+                {% csrf_token %}
+                <button class="btn btn-danger btn-rounded" type="submit">Yes <i class="fa-solid fa-trash"></i></button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

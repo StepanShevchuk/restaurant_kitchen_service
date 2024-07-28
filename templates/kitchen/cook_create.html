@@ -1,0 +1,13 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+    <div style="text-align: center">
+    <h2> Cook creation form</h2>
+    <form action="" method="post">
+    {% csrf_token %}
+        <div style="display: inline-block;">
+            {{ form.as_p }}
+        </div>
+        <br>
+        <button type="submit" class="btn btn-rounded btn-dribbble">Submit</button>
+    </form></div>
+{% endblock %}
