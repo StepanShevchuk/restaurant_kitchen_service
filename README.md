@@ -1,6 +1,11 @@
 ﻿# restaurant_kitchen_service
 Restaurant Management System
 
+website url - https://kitchen-service-v5ah.onrender.com
+
+login: test123
+password: 12345
+
 Welcome to the Restaurant Management System! This web application is designed to streamline the management of a restaurant by providing an intuitive interface to handle dishes, dish types, and cookers. Whether you are a small bistro or a large dining establishment, our system aims to make your operations more efficient and organized.
 
 Features
@@ -16,42 +21,13 @@ Cooker Profiles: Create and manage profiles for your cooking staff, including th
 Assignment: Assign dishes to specific cookers to keep track of who is responsible for preparing each item on your menu.
 Getting Started
 
-Prerequisites
-Node.js (version 14.x or higher)
-MongoDB (for database management)
-Installation
-Clone the repository:
-bash
-Копировать код
-git clone https://github.com/yourusername/restaurant-management-system.git
-cd restaurant-management-system
-Install dependencies:
-bash
-Копировать код
-npm install
-Set up the database:
-Make sure MongoDB is running and accessible. Create a database named restaurantDB.
-Configure environment variables:
-Create a .env file in the root directory and add the following:
-env
-Копировать код
-PORT=3000
-MONGODB_URI=mongodb://localhost:27017/restaurantDB
-Start the application:
-bash
-Копировать код
-npm start
-Access the application:
-Open your browser and go to http://localhost:3000.
-Usage
 
-Login/Register: Create an account or log in to access the management dashboard.
 Manage Dishes: Navigate to the dishes section to add, edit, or remove dishes.
 Manage Dish Types: Go to the dish types section to organize your menu into categories.
 Manage Cookers: Visit the cookers section to manage your cooking staff and assign them to dishes.
 Contributing
 
-We welcome contributions from the community! If you'd like to contribute, please follow these steps:
+We welcome contributions from the community! If you'd like to add changes to these project, please follow these steps:
 
 Fork the repository.
 Create a new branch (git checkout -b feature/your-feature-name).
